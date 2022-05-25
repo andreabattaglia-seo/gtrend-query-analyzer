@@ -64,7 +64,7 @@ linesDeduped2 = []
 MAX_LINES = 5
 text2 = st.markdown("Analisi delle query più cercate e di quelle in aumento.")
 text3 = st.markdown("Inserisci una keywor per linea (max 5), seleziona il paese e il periodo da analizzare. Po premi 'Dammi i Trends! 🤘' ")
-text = st.text_area("Fork by Orit Mutznik (@oritsimu)", height=150, key=1)
+text = st.text_area("Forked from Orit Mutznik (@oritsimu)", height=150, key=1)
 lines = text.split("\n")  # A list of lines
 linesList = []
 for x in lines:
