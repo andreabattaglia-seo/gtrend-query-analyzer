@@ -55,8 +55,8 @@ def removeRestrictedCharactersAndWhiteSpaces(keywords):
 
 st.set_page_config(layout="wide")
 
-st.title("The G-Trendalyser:snake::fire:")
-st.markdown('**Your 5 Top & Rising Google Trends Dashboard⚡**') 
+st.title("GTrends Query Analyzer")
+# st.markdown('**Your 5 Top & Rising Google Trends Dashboard⚡**') 
 
 # st.markdown("## ** Paste keywords **")
 
@@ -64,7 +64,7 @@ linesDeduped2 = []
 MAX_LINES = 5
 text2 = st.markdown("Get your Top & Rising trends for 5 keywords, directly from Google Trends, no coding needed :sunglasses:.")
 text3 = st.markdown("To get started: Paste 1 keyword per line, pick your country (geo) & timeframe from the dropdowns & hit 'Get Trends🤘' ")
-text = st.text_area("by Orit Mutznik (@oritsimu)", height=150, key=1)
+text = st.text_area("Fork by Orit Mutznik (@oritsimu)", height=150, key=1)
 text2 = st.markdown('*Value column does not represent search volume, it is more of a value assigned by Google to signal how trending a kw is')
 lines = text.split("\n")  # A list of lines
 linesList = []
@@ -74,7 +74,7 @@ linesList = list(dict.fromkeys(linesList))  # Remove dupes
 linesList = list(filter(None, linesList))  # Remove empty
 
 if len(linesList) > MAX_LINES:
-    st.warning(f"⚠️ Only the first 5 keywords will be reviewed.)")
+    st.warning(f"⚠️ Solo le prime 5 keyword saranno analizzate.)")
     linesList = linesList[:MAX_LINES]
 
 
