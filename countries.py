@@ -1,6 +1,7 @@
 name = "name"
 code = "code"
 countries = [
+  {name: 'Italy', code: 'IT'},
   {name: 'Afghanistan', code: 'AF'},
   {name: 'Åland Islands', code: 'AX'},
   {name: 'Albania', code: 'AL'},
@@ -108,7 +109,6 @@ countries = [
   {name: 'Ireland', code: 'IE'},
   {name: 'Isle of Man', code: 'IM'},
   {name: 'Israel', code: 'IL'},
-  {name: 'Italy', code: 'IT'},
   {name: 'Jamaica', code: 'JM'},
   {name: 'Japan', code: 'JP'},
   {name: 'Jersey', code: 'JE'},
