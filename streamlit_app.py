@@ -56,16 +56,15 @@ def removeRestrictedCharactersAndWhiteSpaces(keywords):
 st.set_page_config(layout="wide")
 
 st.title("GTrends Query Analyzer")
-# st.markdown('**Your 5 Top & Rising Google Trends Dashboard⚡**') 
+# st.markdown('**Analisi bulk delle query più cercate e in aumento**') 
 
 # st.markdown("## ** Paste keywords **")
 
 linesDeduped2 = []
 MAX_LINES = 5
-text2 = st.markdown("Get your Top & Rising trends for 5 keywords, directly from Google Trends, no coding needed :sunglasses:.")
-text3 = st.markdown("To get started: Paste 1 keyword per line, pick your country (geo) & timeframe from the dropdowns & hit 'Get Trends🤘' ")
+text2 = st.markdown("Analisi delle query più cercate e di quelle in aumento.")
+text3 = st.markdown("Inserisci una keywor per linea (max 5), seleziona il paese e il periodo da analizzare. Po premi 'Dammi i Trends! 🤘' ")
 text = st.text_area("Fork by Orit Mutznik (@oritsimu)", height=150, key=1)
-text2 = st.markdown('*Value column does not represent search volume, it is more of a value assigned by Google to signal how trending a kw is')
 lines = text.split("\n")  # A list of lines
 linesList = []
 for x in lines:
@@ -81,17 +80,17 @@ if len(linesList) > MAX_LINES:
 country_names, country_codes = parse()
 country_names, country_codes = country_names[:243], country_codes[:243]
 
-country = st.selectbox("Your Country", country_names)
-st.write(f"You selected " + country)
+country = st.selectbox("Seleziona il paese", country_names)
+st.write(f"Hai selezionato " + country)
 idx = country_names.index(country)
 country_code = country_codes[idx],
 
 selected_timeframe = ""
 
 
-period_list = ["Past 12 months", "Past hour", "Past 4 hours", "Past day", "Past 7 days", "Past 30 days", "Past 90 days", "Past 5 years", "2004 - present", "Custom time range"]
-tf = ["today 12-m", "now 1-H", "now 4-H", "now 1-d", "now 7-d", "today 1-m", "today 3-m", "today 5-y", "all", "custom"]
-timeframe_selectbox = st.selectbox("Choose Period", period_list)
+period_list = ["Past hour", "Past 4 hours", "Past day", "Past 7 days", "Past 14 days", "Past 30 days", "Past 90 days", "Past 12 months", "Past 5 years", "2004 - present", "Custom time range"]
+tf = ["now 1-H", "now 4-H", "now 1-d", "now 7-d", "today 1-m", "today 3-m", "today 12-m", "today 5-y", "all", "custom"]
+timeframe_selectbox = st.selectbox("Scegli il periodo", period_list)
 
 idx = period_list.index(timeframe_selectbox)
 
@@ -125,7 +124,7 @@ if selected_timeframe == "custom":
     selected_timeframe = str(year_from) + "-" + str(month_from) + "-" + str(day_from) + " " + str(year_to) + "-" + str(month_to) + "-" + str(day_to)
         
 
-start_execution = st.button("Get Trends! 🤘")
+start_execution = st.button("Dammi i Trends! 🤘")
 
 
 
@@ -134,7 +133,7 @@ if start_execution:
 
     if len(linesList) == 0:
     
-        st.warning("Please enter at least 1 keyword.")
+        st.warning("Inserisci almeno una 1 keyword.")
         
     else:
     
@@ -145,18 +144,18 @@ if start_execution:
         
         for i in range(len(linesList)):
 
-            st.header("GTrends data for keyword {}: {}".format(i+1, str(linesList[i])))
+            st.header("Dati GTrendsper la keyword {}: {}".format(i+1, str(linesList[i])))
 
             c29, c30, c31 = st.beta_columns([6, 2, 6])
 
             with c29:
 
-                st.subheader("Top Trends🏆")
+                st.subheader("Più cercate - Top Trends🏆")
                 st.write(related_queries.get(linesList[i]).get("top"))
 
             with c31:
 
-                st.subheader("Rising Trends⚡")
+                st.subheader("In aumento - Rising Trends⚡")
                 st.write(related_queries.get(linesList[i]).get("rising"))
 
         
