@@ -63,7 +63,7 @@ st.title("GTrends Query Analyzer")
 linesDeduped2 = []
 MAX_LINES = 5
 text2 = st.markdown("Analisi delle query più cercate e di quelle in aumento.")
-text3 = st.markdown("Inserisci una keywor per linea (max 5), seleziona il paese e il periodo da analizzare. Po premi 'Dammi i Trends! 🤘' ")
+text3 = st.markdown("Inserisci una keywor per linea (max 5), seleziona il paese e il periodo da analizzare. Poi premi 'Dammi i Trends! 🤘' ")
 text = st.text_area("Forked from Orit Mutznik (@oritsimu)", height=150, key=1)
 lines = text.split("\n")  # A list of lines
 linesList = []
@@ -88,7 +88,7 @@ country_code = country_codes[idx],
 selected_timeframe = ""
 
 
-period_list = ["Past hour", "Past 4 hours", "Past day", "Past 7 days", "Past 14 days", "Past 30 days", "Past 90 days", "Past 12 months", "Past 5 years", "2004 - present", "Custom time range"]
+period_list = ["Ultima ora", "Ultime 4 ore", "Ieri", "Ultima settimana", "Ultime 2 settimane", "Mese scorso", "Ultimi 3 mesi", "Ultimo anno", "Ultimi 5 anni", "dal 2004 ad oggi", "Periodo custom"]
 tf = ["now 1-H", "now 4-H", "now 1-d", "now 7-d", "today 1-m", "today 3-m", "today 12-m", "today 5-y", "all", "custom"]
 timeframe_selectbox = st.selectbox("Scegli il periodo", period_list)
 
@@ -144,7 +144,7 @@ if start_execution:
         
         for i in range(len(linesList)):
 
-            st.header("Dati GTrendsper la keyword {}: {}".format(i+1, str(linesList[i])))
+            st.header("Dati Google Trends per la keyword {}: {}".format(i+1, str(linesList[i])))
 
             c29, c30, c31 = st.beta_columns([6, 2, 6])
 
