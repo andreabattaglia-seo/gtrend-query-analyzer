@@ -105,6 +105,8 @@ years = list(range(2005, current_year + 1))
 months = list(range(1, 13))
 days = list(range(1, 32))
 
+proxy = text_input("Inserisci un proxy")
+
 if selected_timeframe == "custom":
     
     st.write(f"From")
@@ -139,14 +141,15 @@ if start_execution:
     
         linesList = removeRestrictedCharactersAndWhiteSpaces(linesList)
         
-        pytrends.build_payload(linesList, timeframe=selected_timeframe, geo=country_code[0])
+        pytrends.build_payload(linesList, timeframe=selected_timeframe, proxies=proxy, geo=country_code[0])
         related_queries = pytrends.related_queries()
+        suggestions = pytrends.suggestions()
         
         for i in range(len(linesList)):
 
             st.header("Dati Google Trends per la keyword {}: {}".format(i+1, str(linesList[i])))
 
-            c29, c30, c31 = st.beta_columns([6, 2, 6])
+            c29, c30, c31, c32, c33 = st.beta_columns([6, 2, 6, 2, 6])
 
             with c29:
 
@@ -157,6 +160,11 @@ if start_execution:
 
                 st.subheader("In aumento - Rising Trends⚡")
                 st.write(related_queries.get(linesList[i]).get("rising"))
+                
+            with c33:
+
+                st.subheader("Keyword suggerite")
+                st.write(suggestions.get(linesList[i])))     
 
         
 
