@@ -61,9 +61,9 @@ st.title("GTrends Query Analyzer")
 # st.markdown("## ** Paste keywords **")
 
 linesDeduped2 = []
-MAX_LINES = 5
+MAX_LINES = 500
 text2 = st.markdown("Analisi delle query più cercate e di quelle in aumento.")
-text3 = st.markdown("Inserisci una keywor per linea (max 5), seleziona il paese e il periodo da analizzare. Poi premi 'Dammi i Trends! 🤘' ")
+text3 = st.markdown("Inserisci una keyword per linea (max 500), seleziona il paese e il periodo da analizzare. Poi premi 'Dammi i Trends! 🤘' ")
 text = st.text_area("Forked from Orit Mutznik (@oritsimu)", height=150, key=1)
 lines = text.split("\n")  # A list of lines
 linesList = []
@@ -73,7 +73,7 @@ linesList = list(dict.fromkeys(linesList))  # Remove dupes
 linesList = list(filter(None, linesList))  # Remove empty
 
 if len(linesList) > MAX_LINES:
-    st.warning(f"⚠️ Solo le prime 5 keyword saranno analizzate.)")
+    st.warning(f"⚠️ Solo le prime 500 keyword saranno analizzate.)")
     linesList = linesList[:MAX_LINES]
 
 
