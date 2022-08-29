@@ -61,7 +61,7 @@ st.title("GTrends Query Analyzer")
 # st.markdown("## ** Paste keywords **")
 
 linesDeduped2 = []
-MAX_LINES = 5
+MAX_LINES = 500
 text2 = st.markdown("Analisi delle query più cercate e di quelle in aumento.")
 text3 = st.markdown("Inserisci una keyword per linea (max 500), seleziona il paese e il periodo da analizzare. Poi premi 'Dammi i Trends! 🤘' ")
 text = st.text_area("Forked from Orit Mutznik (@oritsimu)", height=150, key=1)
@@ -138,8 +138,14 @@ if start_execution:
     else:
     
         linesList = removeRestrictedCharactersAndWhiteSpaces(linesList)
+    
+        #Google Trends search limit is 5 keywords at a time, thus we need to divide our keyword list to 5 groups
+        #and iterate through them
+
+        for i in range(int(len(linesList)/5) + 1):
         
-        pytrends.build_payload(linesList, timeframe=selected_timeframe, geo=country_code[0])
+        #pytrends.build_payload(linesList, timeframe=selected_timeframe, geo=country_code[0])
+        pytrends.build_payload(lineslist[i*5: i*5 + 5], timeframe=selected_timeframe, geo=country_code[0])
         related_queries = pytrends.related_queries()
         
         for i in range(len(linesList)):
