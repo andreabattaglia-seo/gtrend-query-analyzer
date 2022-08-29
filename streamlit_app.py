@@ -150,7 +150,7 @@ if start_execution:
         
         for i in range(len(linesList)):
             
-            if (i*5 +i) ! len(linesList):
+            if (i*5 +i) != len(linesList):
 
                 st.header("Dati Google Trends per la keyword {}: {}".format(i+1, str(linesList[i])))
 
