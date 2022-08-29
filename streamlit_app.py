@@ -157,11 +157,13 @@ if start_execution:
             with c29:
 
                 st.subheader("Più cercate - Top Trends🏆")
+                if [i] is not None:
                 st.write(related_queries.get(linesList[i]).get("top"))
 
             with c31:
 
                 st.subheader("In aumento - Rising Trends⚡")
+                if [i] is not None:
                 st.write(related_queries.get(linesList[i]).get("rising"))
 
         
