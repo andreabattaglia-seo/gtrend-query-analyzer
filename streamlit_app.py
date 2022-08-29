@@ -149,6 +149,10 @@ if start_execution:
         related_queries = pytrends.related_queries()
         
         for i in range(len(linesList)):
+            
+            if (i*5 +i) == len(linesList):
+                break
+            else:
 
             st.header("Dati Google Trends per la keyword {}: {}".format(i+1, str(linesList[i])))
 
@@ -157,16 +161,12 @@ if start_execution:
             with c29:
 
                 st.subheader("Più cercate - Top Trends🏆")
-                if [i] is not None:
-                    st.write(related_queries.get(linesList[i]).get("top"))
+                st.write(related_queries.get(linesList[i]).get("top"))
 
             with c31:
 
                 st.subheader("In aumento - Rising Trends⚡")
-                if [i] is not None:
-                    st.write(related_queries.get(linesList[i]).get("rising"))
-
-        
+                st.write(related_queries.get(linesList[i]).get("rising"))
 
         st.stop()
 
