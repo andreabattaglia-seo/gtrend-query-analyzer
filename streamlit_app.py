@@ -154,19 +154,19 @@ if start_execution:
                 break
             else:
 
-            st.header("Dati Google Trends per la keyword {}: {}".format(i+1, str(linesList[i])))
+                st.header("Dati Google Trends per la keyword {}: {}".format(i+1, str(linesList[i])))
 
-            c29, c30, c31 = st.beta_columns([6, 2, 6])
+                c29, c30, c31 = st.beta_columns([6, 2, 6])
 
-            with c29:
+                with c29:
 
-                st.subheader("Più cercate - Top Trends🏆")
-                st.write(related_queries.get(linesList[i]).get("top"))
+                    st.subheader("Più cercate - Top Trends🏆")
+                    st.write(related_queries.get(linesList[i]).get("top"))
 
-            with c31:
+                with c31:
 
-                st.subheader("In aumento - Rising Trends⚡")
-                st.write(related_queries.get(linesList[i]).get("rising"))
+                    st.subheader("In aumento - Rising Trends⚡")
+                    st.write(related_queries.get(linesList[i]).get("rising"))
 
         st.stop()
 
