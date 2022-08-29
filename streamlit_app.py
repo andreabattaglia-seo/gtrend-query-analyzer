@@ -161,12 +161,12 @@ if start_execution:
                 with c29:
 
                     st.subheader("Più cercate - Top Trends🏆")
-                    st.write(related_queries.get(linesList[i]).get("top"))
+                    st.write(related_queries.get(linesList[i]).get("top")).st
 
                 with c31:
 
                     st.subheader("In aumento - Rising Trends⚡")
-                    st.write(related_queries.get(linesList[i]).get("rising"))
+                    st.write(related_queries.get(linesList[i]).get("rising")).st
 
         st.stop()
 
