@@ -145,7 +145,7 @@ if start_execution:
         for i in range(int(len(linesList)/5) + 1):
         
         #pytrends.build_payload(linesList, timeframe=selected_timeframe, geo=country_code[0])
-        pytrends.build_payload(lineslist[i*5: i*5 + 5], timeframe=selected_timeframe, geo=country_code[0])
+         pytrends.build_payload(lineslist[i*5: i*5 + 5], timeframe=selected_timeframe, geo=country_code[0])
         related_queries = pytrends.related_queries()
         
         for i in range(len(linesList)):
