@@ -168,7 +168,7 @@ if start_execution:
                 if (i*5 +i) == len(linesList):
                     break
                 else:                
-                st.write(related_queries.get(linesList[i]).get("rising"))
+                    st.write(related_queries.get(linesList[i]).get("rising"))
 
         st.stop()
 
